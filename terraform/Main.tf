@@ -130,7 +130,7 @@ resource "aws_instance" "public" {
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.public-sg.id]
-  key_name               = aws_key_pair.mahesh_key.key_name
+  key_name               = "Mahesh"
   tags = {
     Name = "public-ec2-${count.index + 1}"
   }
@@ -143,7 +143,7 @@ resource "aws_instance" "private" {
   instance_type          = "t2.micro"
   subnet_id              = aws_subnet.private.id
   vpc_security_group_ids = [aws_security_group.public-sg.id]
-  key_name               = aws_key_pair.mahesh_key.key_name
+  key_name               = "Mahesh"
   tags = {
     Name = "private-ec2-${count.index + 1}"
   }
