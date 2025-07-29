@@ -126,7 +126,6 @@ resource "aws_security_group" "public-sg" {
 # Reference Existing Key Pair
 resource "aws_key_pair" "mahesh_key" {
   key_name   = "Mahesh"
-  public_key = file("~/.ssh/Mahesh.pub") # Path to your public key
 }
 
 # EC2 Instances in Public Subnet
