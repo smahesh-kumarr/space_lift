@@ -1,11 +1,13 @@
 ---
 - name: Configure public EC2 instance with Docker
   hosts: public_instances
+  become: true
   roles:
     - docker
 
 - name: Configure private EC2 instance with nodejs
   hosts: private_instances
+  become: true
   roles: 
     - nodejs
 
