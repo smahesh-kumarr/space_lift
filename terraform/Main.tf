@@ -123,11 +123,6 @@ resource "aws_security_group" "public-sg" {
   }
 }
 
-# Reference Existing Key Pair
-resource "aws_key_pair" "mahesh_key" {
-  key_name   = "Mahesh"
-}
-
 # EC2 Instances in Public Subnet
 resource "aws_instance" "public" {
   count                  = 2
