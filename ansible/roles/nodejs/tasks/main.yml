@@ -1,0 +1,32 @@
+---
+- name: Install curl
+  apt:
+    name: curl
+    state: present
+    update_cache: yes
+
+- name: Add NodeSource GPG key
+  shell: curl -sL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
+  args:
+    warn: no
+
+- name: Add NodeSource repository for latest Node.js
+  apt_repository:
+    repo: deb https://deb.nodesource.com/node_18.x focal main
+    state: present
+
+- name: Install Node.js
+  apt:
+    name: nodejs
+    state: present
+    update_cache: yes
+
+- name: Verify Node.js installation
+  command: node --version
+  register: node_version
+  changed_when: false
+
+- name: Verify npm installation
+  command: npm --version
+  register: npm_version
+  changed_when: false
