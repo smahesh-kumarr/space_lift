@@ -3,7 +3,7 @@ ${public_ips}
 
 [public_instances:vars]
 ansible_user=ubuntu
-ansible_ssh_private_key_file=/ansible/Mahesh.pem
+ansible_ssh_private_key_file=/mnt/workspace/ansible/Mahesh.pem
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 [private_instances]
@@ -11,5 +11,5 @@ ${private_ips}
 
 [private_instances:vars]
 ansible_user=ubuntu
-ansible_ssh_private_key_file=/ansible/Mahesh.pem
+ansible_ssh_private_key_file=/mnt/workspace/ansible/Mahesh.pem
 ansible_ssh_common_args='-o StrictHostKeyChecking=no -o ProxyCommand="ssh -i /ansible/Mahesh.pem -W %h:%p ubuntu@${bastion_ip}"'
